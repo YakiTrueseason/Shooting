@@ -1,8 +1,9 @@
 using UnityEngine;
+//敵に当てる弾
 
 public class EnemyController : MonoBehaviour
 {
-    public float speed = 2f;
+    public float speed = 8f;
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +22,7 @@ public class EnemyController : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             Destroy(other.gameObject); // 弾を削除
+            ScoreManager.Instance.AddScore(100); // スコアを加算
             Destroy(gameObject); // 敵を削除
         }
     }

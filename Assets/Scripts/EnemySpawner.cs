@@ -1,4 +1,5 @@
 using UnityEngine;
+//敵出現
 
 public class EnemySpawner : MonoBehaviour
 {

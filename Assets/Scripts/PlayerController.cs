@@ -7,16 +7,16 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
 
-    public GameObject bulletPrefab;
-    public Transform firePoint;
+    public GameObject bulletPrefab; //弾のプレハブ
+    public Transform firePoint; //弾を発射する位置
 
-    private PlayerInputActions inputActions;
-    private Vector2 moveInput;
+    private PlayerInputActions inputActions; //入力アクションのインスタンス
+    private Vector2 moveInput; //移動入力の値
 
     //ゲーム開始時に一度だけ実行
     private void Awake()
     {
-        inputActions = new PlayerInputActions();
+        inputActions = new PlayerInputActions(); // 入力アクションのインスタンスを作成
     }
 
     //入力を受け付ける準備
@@ -36,11 +36,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        inputActions.Disable();
+        inputActions.Disable(); // 入力を無効化
     }
 
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //敵と衝突した時の処理
+    private void OnTriggerEnter2D (Collider2D other) 
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            PlayerManager.Instance.Damage(); //プレイヤーのライフを減らす
+
+            Destroy(other.gameObject); //敵を破壊
+        }
+    }
     //現在入力されている方向
     void Update()
     {
