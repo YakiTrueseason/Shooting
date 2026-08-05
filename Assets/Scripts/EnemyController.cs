@@ -1,9 +1,16 @@
+// 敵がどう動くか
+
 using UnityEngine;
-//敵に当てる弾
 
 public class EnemyController : MonoBehaviour
 {
-    public float speed = 8f;
+    public float speed = 10f; // 敵の移動速度
+
+    void Start()
+    {
+        int level = LevelManager.Instance.GetLevel(); // 現在のレベルを取得
+        speed = Mathf.Clamp(3f * (level - 1) * 1.5f, 3f, 15f); // レベルに応じて速度を調整（最小3、最大15）
+    }
     // Update is called once per frame
     void Update()
     {

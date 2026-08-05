@@ -1,7 +1,9 @@
+//ライフ
+
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-//ライフ
+
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance; // シングルトンインスタンス

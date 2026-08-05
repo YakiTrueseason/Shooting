@@ -1,3 +1,5 @@
+//敵に当てる弾
+
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
@@ -11,7 +13,7 @@ public class BulletController : MonoBehaviour
         //画面の上まで行ったら削除
         if (transform.position.y > 5f)
         {
-            Destroy(gameObject);
+            Destroy(gameObject);　//弾を削除
         }
     }
 }
