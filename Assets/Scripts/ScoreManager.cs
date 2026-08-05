@@ -1,10 +1,11 @@
+//スコア
+
 using UnityEngine;
 using TMPro;
-//スコア
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instance;
+    public static ScoreManager Instance; 
 
     public TextMeshProUGUI scoreText;
 
@@ -16,7 +17,10 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int points)
     {
-        score += points;
-        scoreText.text = "Score: " + score;
+        score += points; // スコアを加算
+
+        scoreText.text = "Score: " + score; // スコア表示を更新
+
+        LevelManager.Instance.CheckLevel(score); // レベルをチェック
     }
 }
