@@ -23,7 +23,7 @@ public class LevelManager : MonoBehaviour
 
     public void CheckLevel(int score)
     {
-        int newLevel = score / 500 + 1; // スコアに応じてレベルを計算（例: 10点ごとにレベルアップ）
+        int newLevel = score / 500 + 1; // スコアに応じてレベルを計算（例: 500点ごとにレベルアップ）
         if (newLevel != level)
         {
             level = newLevel;

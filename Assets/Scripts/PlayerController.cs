@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         float halfWidth = GetComponent<SpriteRenderer>().bounds.extents.x; // プレイヤーの半分の幅を取得
 
         Vector3 pos = transform.position; // 現在の位置を取得
-        pos.x = Mathf.Clamp(pos.x, -4.3f + halfWidth, 4.3f - halfWidth); // 画面の端に到達したら移動を制限する
+        pos.x = Mathf.Clamp(pos.x, -5f + halfWidth, 5f - halfWidth); // 画面の端に到達したら移動を制限する
         transform.position = pos;
 
         //スペースキーが押されたら弾を発射する
@@ -68,7 +68,9 @@ public class PlayerController : MonoBehaviour
             //新しいオブジェクトを作る
             Instantiate(
                 bulletPrefab, //弾のプレハブ
+
                 firePoint.position,//弾を発射する位置
+
                 Quaternion.identity//弾の回転を指定
              );
         }
