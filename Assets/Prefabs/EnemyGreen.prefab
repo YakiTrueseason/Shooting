@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5198689063022106533}
   - component: {fileID: 108324201193838419}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyGreen
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,6 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   speed: 2
+  hp: 1
+  score: 100
 --- !u!61 &-5198689063022106533
 BoxCollider2D:
   m_ObjectHideFlags: 0
