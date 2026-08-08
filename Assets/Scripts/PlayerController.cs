@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 5f; //プレイヤーの移動速度
+    public float speed = 8f; //プレイヤーの移動速度
 
     public GameObject bulletPrefab; //弾のプレハブ
 
@@ -54,13 +54,36 @@ public class PlayerController : MonoBehaviour
     //現在入力されている方向
     void Update()
     {
+        Debug.Log($"Move Input: {moveInput}"); // デバッグ用に移動入力を表示
+        Debug.Log($"Player Position: {transform.position}"); // デバッグ用にプレイヤーの位置を表示
 
-        transform.Translate(moveInput.x  * speed * Time.deltaTime, 0, 0); // 入力に応じてプレイヤーを移動させる
-        float halfWidth = GetComponent<SpriteRenderer>().bounds.extents.x; // プレイヤーの半分の幅を取得
+        // 入力に応じてプレイヤーを移動させる
+        transform.Translate(
+            moveInput.x  * speed * Time.deltaTime,
+            moveInput.y * speed * Time.deltaTime,
+            0f
+         );
+
+        // プレイヤーのスプライトの幅を取得
+        float halfWidth = GetComponent<SpriteRenderer>().bounds.extents.x; 
 
         Vector3 pos = transform.position; // 現在の位置を取得
-        pos.x = Mathf.Clamp(pos.x, -5f + halfWidth, 5f - halfWidth); // 画面の端に到達したら移動を制限する
-        transform.position = pos;
+
+        // 画面の左右の端に到達したら移動を制限する
+        pos.x = Mathf.Clamp(
+            pos.x,
+            -5f + transform.localScale.x / 2f,
+            5f - transform.localScale.x / 2f
+         );
+
+        // 画面の上下の端に到達したら移動を制限する
+        pos.y = Mathf.Clamp(
+            pos.y,
+            -5f + transform.localScale.y / 2f,
+            5f - transform.localScale.y / 2f
+         );
+
+        transform.position = pos; // 制限後の位置を設定
 
         //スペースキーが押されたら弾を発射する
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
