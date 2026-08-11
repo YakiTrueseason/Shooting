@@ -10,10 +10,24 @@ public class BlueEnemyController : MonoBehaviour
 
     public float movespeed = 2f; //敵の移動速度
 
+    public int hp = 1; //敵の体力
+
+    public int score = 100; //敵を倒したときのスコア
+
+    public GameObject enemyBulletPrefab; //敵の弾のプレハブ
+
+    public Transform firePoint; //弾を発射する位置
+
+    public float fireInterval = 0.5f; //弾を発射する間隔
+
+    private float fireTimer = 0f; //弾を発射するタイマー
+
+    private float moveTimer = 0f; //敵の移動タイマー
+
     private Vector3 startPos; //敵の初期位置
     void Start()
     {
-        startPos = transform.position;
+        startPos = transform.position; //敵の初期位置を保存
     }
 
     void Update()
@@ -24,6 +38,14 @@ public class BlueEnemyController : MonoBehaviour
         //サイン波を使って左右に移動させる
         float x = Mathf.Sin(Time.time * movespeed) * moveWidth; 
 
+        fireTimer += Time.deltaTime; //タイマーを更新
+
+        if(fireTimer >= fireInterval)
+        {
+            Shoot(); //弾を発射
+            fireTimer = 0f; //タイマーをリセット
+        }
+
         //敵の位置を更新
         transform.position = new Vector3(
             startPos.x + x,
@@ -32,6 +54,49 @@ public class BlueEnemyController : MonoBehaviour
         if (transform.position.y < -5f)
         {
             Destroy(gameObject); //画面の下まで行ったら削除
+        }
+    }
+
+    //弾を発射する処理
+    void Shoot()
+    {
+        GameObject bullet = Instantiate(
+            enemyBulletPrefab,
+            firePoint.position,
+            Quaternion.identity 
+            );
+        //弾の方向を設定
+        EnemyBulletController bulletController = bullet.GetComponent<EnemyBulletController>();
+
+        //弾の方向を下に設定
+        if (bulletController != null)
+        {
+            bulletController.SetDirection(
+                new Vector3(0, -1, 0)
+                ); 
+        }
+    }
+
+    //敵がプレイヤーに当たったときの処理
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerManager.Instance.Damage(); //プレイヤーのライフを減らす
+
+            Destroy(gameObject); //敵を破壊する
+        }
+        //敵がプレイヤーの弾に当たったときの処理
+        if (other.CompareTag("Bullet"))
+        {
+            Destroy(other.gameObject); //プレイヤーの弾を破壊する
+            hp--;
+        }
+        if (hp <= 0)
+        {
+            ScoreManager.Instance.AddScore(score); //スコアを加算する
+
+            Destroy(gameObject); 
         }
     }
 }

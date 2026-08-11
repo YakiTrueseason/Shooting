@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8194376881881860235}
   - component: {fileID: 5270616397531507198}
-  - component: {fileID: -5290082097841154236}
   - component: {fileID: -5198689063022106533}
   - component: {fileID: 108324201193838419}
   - component: {fileID: -6361026013720970493}
@@ -127,21 +126,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &-5290082097841154236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5239996445711805686}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6fb546c7de2b0d4cb037e297537f057, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  speed: 2
-  hp: 1
-  score: 100
 --- !u!61 &-5198689063022106533
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -230,4 +214,4 @@ MonoBehaviour:
   speed: 3
   enemyBulletPrefab: {fileID: 3043368227009335917, guid: b3b76b4685e83834b94c257b66e51640, type: 3}
   firePoint: {fileID: 7106894702097190933}
-  fireInterval: 2
+  fireInterval: 1

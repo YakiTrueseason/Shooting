@@ -8,13 +8,9 @@ public class EnemyBulletController : MonoBehaviour
 
     private Vector3 direction; //弾の移動方向
 
-    public void SetDirection(Vector3 targetPosition)
+    public void SetDirection(Vector3 targetDirection)
     {
-        direction = (targetPosition - transform.position).normalized; //弾の移動方向を設定
-    }
-    void Start()
-    {
-        
+        direction = targetDirection.normalized; //弾の移動方向を設定
     }
     
     void Update()
@@ -29,6 +25,7 @@ public class EnemyBulletController : MonoBehaviour
             Destroy(gameObject); 
         }
     }
+
     //プレイヤーと衝突した時の処理
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -37,6 +34,14 @@ public class EnemyBulletController : MonoBehaviour
             PlayerManager.Instance.Damage(); //プレイヤーのライフを減らす
 
             Destroy(gameObject); //弾を破壊する
+        }
+        if(other.CompareTag("Bullet"))
+        {
+            Destroy(other.gameObject); //プレイヤーの弾を破壊する
+
+            ScoreManager.Instance.AddScore(10); //スコアを加算する
+
+            Destroy(gameObject); //敵の弾を破壊する
         }
     }
 }
