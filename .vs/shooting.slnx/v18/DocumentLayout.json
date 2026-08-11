@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\workspace\\TrueSeason\\Unity\\shooting\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\PlayerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\PlayerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\workspace\\trueseason\\unity\\shooting\\assets\\scripts\\blueenemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\blueenemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:2:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\PlayerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:2:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\PlayerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\EnemyBulletController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\EnemyBulletController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\workspace\\trueseason\\unity\\shooting\\assets\\scripts\\greenenemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\greenenemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\workspace\\trueseason\\unity\\shooting\\assets\\scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,18 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\workspace\\trueseason\\unity\\shooting\\assets\\scripts\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\workspace\\trueseason\\unity\\shooting\\assets\\scripts\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\workspace\\trueseason\\unity\\shooting\\assets\\scripts\\blueenemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\blueenemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\workspace\\trueseason\\unity\\shooting\\assets\\scripts\\redenemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\redenemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\workspace\\trueseason\\unity\\shooting\\assets\\scripts\\bulletcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,23 +34,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BlueEnemyController.cs",
-              "DocumentMoniker": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\BlueEnemyController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\BlueEnemyController.cs",
-              "ToolTip": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\BlueEnemyController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\BlueEnemyController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAbAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "GreenEnemyController.cs",
+              "DocumentMoniker": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\GreenEnemyController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GreenEnemyController.cs",
+              "ToolTip": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\GreenEnemyController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GreenEnemyController.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAUwFYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-07T10:37:14.533Z"
+              "WhenOpened": "2026-08-11T02:04:38.25Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "EnemyBulletController.cs",
+              "DocumentMoniker": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\EnemyBulletController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyBulletController.cs",
+              "ToolTip": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\EnemyBulletController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EnemyBulletController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T02:03:57.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "EnemySpawner.cs",
               "DocumentMoniker": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\EnemySpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnemySpawner.cs",
@@ -66,12 +72,24 @@
               "RelativeToolTip": "Assets\\Scripts\\EnemySpawner.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAIwB8AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-05T14:57:40.007Z",
+              "WhenOpened": "2026-08-05T14:57:40.007Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BlueEnemyController.cs",
+              "DocumentMoniker": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\BlueEnemyController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BlueEnemyController.cs",
+              "ToolTip": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\BlueEnemyController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BlueEnemyController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGIAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T10:37:14.533Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "LevelManager.cs",
               "DocumentMoniker": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\LevelManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\LevelManager.cs",
@@ -83,44 +101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EnemyController.cs",
-              "DocumentMoniker": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\EnemyController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyController.cs",
-              "ToolTip": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\EnemyController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\EnemyController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-07T03:17:53.555Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PlayerController.cs",
-              "DocumentMoniker": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\PlayerController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
-              "ToolTip": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\PlayerController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAowEIAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-07T14:09:03.363Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RedEnemyController.cs",
-              "DocumentMoniker": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\RedEnemyController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\RedEnemyController.cs",
-              "ToolTip": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\RedEnemyController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\RedEnemyController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-07T10:56:14.959Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "BulletController.cs",
               "DocumentMoniker": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\BulletController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BulletController.cs",
@@ -129,18 +110,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-05T15:21:42.951Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PlayerController.cs",
-              "DocumentMoniker": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\PlayerController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
-              "ToolTip": "C:\\workspace\\TrueSeason\\Unity\\shooting\\Assets\\Scripts\\PlayerController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAxwAgAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-25T15:01:39.057Z"
             }
           ]
         }
