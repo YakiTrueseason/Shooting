@@ -15,9 +15,13 @@ public class GreenEnemyController : MonoBehaviour
 
     public Transform firePoint; // 弾を発射する位置
 
-    public float fireInterval = 0.1f; // 弾を発射する間隔
+    public float fireInterval = 0.5f; // 弾を発射する間隔
 
     private float fireTimer = 0f; // 弾を発射するタイマー
+
+    private bool firstShot = true; // 最初の弾を撃つかどうか
+
+    private bool isDead = false; // 敵が死んでいるかどうか
 
 
     void Start()
@@ -33,9 +37,17 @@ public class GreenEnemyController : MonoBehaviour
             Vector3.down * speed * Time.deltaTime
             );
 
+        // 最初の弾を撃つ処理
+        if (firstShot)
+        {
+            Shoot(); // 最初の弾を発射
+            firstShot = false; // 最初の弾を撃ったのでfalseにする
+            fireTimer = 0f; // タイマーをリセット
+        }
+
         fireTimer += Time.deltaTime; // タイマーを更新
 
-        // 弾を発射する処理
+        //2回目以降の弾を撃つ処理
         if (fireTimer >= fireInterval)
         {
             Shoot(); 
@@ -86,9 +98,13 @@ public class GreenEnemyController : MonoBehaviour
              hp --;
 
             // 敵の体力が0以下になったらスコアを加算して敵を削除
-            if (hp <= 0)
+            if (hp <= 0 && !isDead)
             {
+                isDead = true;
+
                 ScoreManager.Instance.AddScore(score);
+
+                LevelManager.Instance.AddExp(1); // 経験値を加算
 
                 Destroy(gameObject);
             }
