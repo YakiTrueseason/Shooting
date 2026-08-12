@@ -38,7 +38,7 @@ public class RedEnemyController : MonoBehaviour
 
         direction.Normalize(); //方向ベクトルを正規化
 
-        transform.Translate(direction * speed * Time.deltaTime, Space.World);
+        transform.Translate(direction * speed * Time.deltaTime, Space.World); //プレイヤーの方向に移動
 
         fireTimer += Time.deltaTime; //タイマーを更新
 
@@ -62,6 +62,8 @@ public class RedEnemyController : MonoBehaviour
             Destroy(other.gameObject); // 弾を削除
 
             ScoreManager.Instance.AddScore(100); //スコアを加算
+
+            LevelManager.Instance.AddExp(1); // 経験値を加算
 
             Destroy(gameObject); //敵を削除
         }

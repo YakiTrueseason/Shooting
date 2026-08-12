@@ -17,10 +17,10 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int points)
     {
+        //Debug.Log("スコア加算: " + points); // デバッグ用に加算するスコアを表示"
+
         score += points; // スコアを加算
 
         scoreText.text = "Score: " + score; // スコア表示を更新
-
-        LevelManager.Instance.CheckLevel(score); // レベルをチェック
     }
 }

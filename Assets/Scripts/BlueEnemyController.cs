@@ -20,6 +20,8 @@ public class BlueEnemyController : MonoBehaviour
 
     public float fireInterval = 0.5f; //弾を発射する間隔
 
+    private bool firstShot = true; //最初の弾を撃つかどうか
+
     private float fireTimer = 0f; //弾を発射するタイマー
 
     private float moveTimer = 0f; //敵の移動タイマー
@@ -36,7 +38,16 @@ public class BlueEnemyController : MonoBehaviour
         transform.Translate(Vector3.down * speed * Time.deltaTime, Space.World);
 
         //サイン波を使って左右に移動させる
-        float x = Mathf.Sin(Time.time * movespeed) * moveWidth; 
+        float x = Mathf.Sin(Time.time * movespeed) * moveWidth;
+
+        if (firstShot)
+        {
+            Shoot(); //最初の弾を発射
+
+            firstShot = false; //最初の弾を撃ったのでfalseにする
+
+            fireTimer = 0f; //タイマーをリセット
+        }
 
         fireTimer += Time.deltaTime; //タイマーを更新
 
@@ -95,6 +106,8 @@ public class BlueEnemyController : MonoBehaviour
         if (hp <= 0)
         {
             ScoreManager.Instance.AddScore(score); //スコアを加算する
+
+            LevelManager.Instance.AddExp(1); //経験値を加算する
 
             Destroy(gameObject); 
         }

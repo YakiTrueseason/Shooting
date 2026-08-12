@@ -218,4 +218,4 @@ MonoBehaviour:
   score: 100
   enemyBulletPrefab: {fileID: 3985190775899862322, guid: 0d7beae42c6d99048b6d6bb396c2681e, type: 3}
   firePoint: {fileID: 7605851529688062160}
-  fireInterval: 0.5
+  fireInterval: 1

@@ -214,4 +214,4 @@ MonoBehaviour:
   speed: 3
   enemyBulletPrefab: {fileID: 3043368227009335917, guid: b3b76b4685e83834b94c257b66e51640, type: 3}
   firePoint: {fileID: 7106894702097190933}
-  fireInterval: 1
+  fireInterval: 0.5

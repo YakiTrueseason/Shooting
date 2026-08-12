@@ -12,7 +12,16 @@ public class PlayerController : MonoBehaviour
 
     public Transform firePoint; //弾を発射する位置
 
+    public float fireInterval = 0.5f; //弾の発射間隔
+
+    public int bulletPower = 1; //弾の威力
+
+    public int bulletCount = 1; //弾の数
+
+    private float fireTimer = 0f; //弾の発射タイマー
+
     private PlayerInputActions inputActions; //入力アクションのインスタンス
+
     private Vector2 moveInput; //移動入力の値
 
     //ゲーム開始時に一度だけ実行
@@ -54,8 +63,8 @@ public class PlayerController : MonoBehaviour
     //現在入力されている方向
     void Update()
     {
-        Debug.Log($"Move Input: {moveInput}"); // デバッグ用に移動入力を表示
-        Debug.Log($"Player Position: {transform.position}"); // デバッグ用にプレイヤーの位置を表示
+        //Debug.Log($"Move Input: {moveInput}"); // デバッグ用に移動入力を表示
+        //Debug.Log($"Player Position: {transform.position}"); // デバッグ用にプレイヤーの位置を表示
 
         // 入力に応じてプレイヤーを移動させる
         transform.Translate(
@@ -63,6 +72,8 @@ public class PlayerController : MonoBehaviour
             moveInput.y * speed * Time.deltaTime,
             0f
          );
+
+        fireTimer += Time.deltaTime; //弾の発射タイマーを更新
 
         // プレイヤーのスプライトの幅を取得
         float halfWidth = GetComponent<SpriteRenderer>().bounds.extents.x; 
@@ -85,17 +96,50 @@ public class PlayerController : MonoBehaviour
 
         transform.position = pos; // 制限後の位置を設定
 
+        fireTimer += Time.deltaTime; //弾の発射タイマーを更新
+
         //スペースキーが押されたら弾を発射する
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (Keyboard.current.spaceKey.isPressed)
         {
-            //新しいオブジェクトを作る
-            Instantiate(
-                bulletPrefab, //弾のプレハブ
+            if(fireTimer >= fireInterval) //弾の発射間隔をチェック
+            {
+                Shoot(); //弾を発射する
 
-                firePoint.position,//弾を発射する位置
-
-                Quaternion.identity//弾の回転を指定
-             );
+                fireTimer = 0f; //タイマーをリセット
+            }
         }
+    }
+
+    //弾を発射するメソッド
+    void Shoot()
+    {
+        Instantiate(
+            bulletPrefab,
+            firePoint.position,
+            Quaternion.identity
+            ); 
+    }
+
+    //弾の威力を上げるメソッド
+    public void UpgradeFireRate()
+    {
+        fireInterval -= 0.1f; //弾の発射間隔を短くする
+
+        if (fireInterval < 0.1f) //最小値を設定
+        {
+            fireInterval = 0.1f;
+        }
+    }
+
+    //弾の威力を上げるメソッド
+    public void UpgradeBulletPower()
+    {
+        bulletPower++; 
+    }
+
+    //弾の数を増やすメソッド
+    public void UpgradeBulletCount()
+    {
+        bulletCount++;
     }
 }
