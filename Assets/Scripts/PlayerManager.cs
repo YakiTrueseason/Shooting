@@ -58,6 +58,7 @@ public class PlayerManager : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f; // ゲームを再開
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // 現在のシーンを再読み込み
+
+        SceneManager.LoadScene("Stage1"); // ステージ1を再読み込み
     }
 }

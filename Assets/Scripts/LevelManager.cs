@@ -9,13 +9,15 @@ public class LevelManager : MonoBehaviour
 
     public TextMeshProUGUI levelText; // レベル表示用のTextMeshProUGUI
 
-    public UpgradeManager upgradeManager;
+    public UpgradeManager upgradeManager; // アップグレードマネージャーの参照
+
+    public GameObject levelUpPanel; // レベルアップパネル
 
     private int level = 1; // 初期レベル
 
     private int exp = 0; // 経験値（スコア）
 
-    private int requiredExp = 10; // レベルアップに必要な経験値
+    private int requiredExp = 5; // レベルアップに必要な経験値
 
     // シングルトンパターンの実装
     private void Awake()
@@ -59,6 +61,12 @@ public class LevelManager : MonoBehaviour
         exp += amount;
 
         Debug.Log("EXP: " + exp + "/" + requiredExp); // デバッグ用に経験値とレベルを表示
+
+        // レベルアップ可能かどうかを判定し、可能であればレベルアップ処理を行う
+        if (CanLevelUp())
+        {
+            LevelUp();
+        }
     }
 
     // レベルアップ可能かどうかを判定するメソッド
