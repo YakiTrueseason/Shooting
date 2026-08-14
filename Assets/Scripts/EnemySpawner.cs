@@ -1,6 +1,7 @@
 //敵出現 いつどこに敵を出すか
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -33,33 +34,42 @@ public class EnemySpawner : MonoBehaviour
 
         return Mathf.Clamp(interval, 1f, 3f); // 生成間隔を1秒から3秒の範囲に制限
     }
+
     // レベルに応じて生成する敵の種類を決定するメソッド
     GameObject GetEnemyPrefab()
     {
-        int level = LevelManager.Instance.GetLevel(); // 現在のレベルを取得
-        if (level < 2)
+        string sceneName = SceneManager.GetActiveScene().name; // 現在のシーン名を取得
+
+        // ステージ1では緑の敵のみを生成
+        if (sceneName == "Stage1")
         {
-            return enemyGreen; // レベル1では緑の敵
+            return enemyGreen; 
         }
-        else if (level < 3)
+        // ステージ2では緑と青の敵をランダムに生成
+        else if (sceneName == "Stage2")
         {
-            return Random.value < 0.5f ? enemyGreen : enemyBlue; // レベル2では緑と青の敵を50%ずつ
+            return Random.value < 0.5f
+                ? enemyGreen
+                : enemyBlue; 
         }
-        else
+        // ステージ3では緑、青、赤の敵をランダムに生成
+        else if (sceneName == "Stage3")
         {
-            float rand = Random.value;
+            float rand = Random.value; // 0から1のランダムな値を生成
+
             if (rand < 0.4f)
             {
-                return enemyGreen; // 40%の確率で緑の敵
+                return enemyGreen; // 40%の確率で緑の敵を生成
             }
-            else if (rand < 0.8f)
+            else if (rand < 0.7f)
             {
-                return enemyBlue; // 40%の確率で青の敵
+                return enemyBlue; // 30%の確率で青の敵を生成
             }
             else
             {
-                return enemyRed; // 20%の確率で赤の敵
+                return enemyRed; // 30%の確率で赤の敵を生成
             }
         }
+            return enemyGreen; // デフォルトは緑の敵を生成
     }
 }
