@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject restartButton; // リスタートボタンのGameObject
 
-    private int life = 3; // 初期ライフ
+    private int life = 5; // 初期ライフ
 
     private void Awake()
     {

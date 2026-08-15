@@ -17,3 +17,9 @@ MemoryCaptures/
 *.pidb
 *.booproj
 *.svd
+
+#Visual Studio 
+.vs/
+
+#TextMesh Pro
+Assets/TextMesh Pro/Fonts/NotoSansJP-VariableFont_wght SDF.asset

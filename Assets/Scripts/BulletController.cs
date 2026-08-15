@@ -1,47 +1,33 @@
-//敵に当てる弾
+//プレイヤー　敵に当てる弾 実際に飛んでいく１発の弾
 
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    public float speed = 5f;
-
-    public float fireInterval = 0.5f; // 弾の発射間隔
+    public float speed = 5f; // 弾の速度
 
     public int bulletPower = 1; // 弾の威力
 
-    public int bulletCount = 1; // 弾の
+    private Vector3 direction = Vector3.up; // 弾の移動方向
 
-    // 弾の発射間隔を上げる
-    public void UpgradeFireRate()
+    // 弾の移動方向を設定するメソッド
+    public void SetDirection(Vector3 newDirection)
     {
-        fireInterval -= 0.1f; 
-
-        if(fireInterval < 0.1f) // 最小値を設定
-        {
-            fireInterval = 0.1f;
-        }
+        direction = newDirection.normalized; 
     }
 
-    // 弾の威力を上げる
-    public void UpgradeBulletPower()
-    {
-        bulletPower ++; 
-    }
 
-    // 弾の数を増やす
-    public void UpgradeBulletCount()
-    {
-        bulletCount++; 
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        //毎フレーム、上方向へ移動する
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
-        //画面の上まで行ったら削除
-        if (transform.position.y > 5f)
+        // 弾を移動させる
+        transform.position += direction * speed * Time.deltaTime;
+
+        // 弾が画面外に出たら削除する
+        if (
+            transform.position.y > 6f ||
+            transform.position.x < -7f ||
+            transform.position.x > 7f
+            )
         {
             Destroy(gameObject);　//弾を削除
         }
