@@ -1,4 +1,4 @@
-//プレイヤーのコントローラー
+//プレイヤー　連射速度　弾数 どんな性能の弾を打つか
 
 using System;
 using UnityEngine;
@@ -28,6 +28,11 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         inputActions = new PlayerInputActions(); // 入力アクションのインスタンスを作成
+
+        //GameManagerに保存されている強化値を取得
+        bulletCount = GameManager.Instance.bulletCount;
+        bulletPower = GameManager.Instance.bulletPower;
+        fireInterval = GameManager.Instance.fireInterval;
     }
 
     //入力を受け付ける準備
@@ -73,8 +78,6 @@ public class PlayerController : MonoBehaviour
             0f
          );
 
-        fireTimer += Time.deltaTime; //弾の発射タイマーを更新
-
         // プレイヤーのスプライトの幅を取得
         float halfWidth = GetComponent<SpriteRenderer>().bounds.extents.x; 
 
@@ -113,33 +116,59 @@ public class PlayerController : MonoBehaviour
     //弾を発射するメソッド
     void Shoot()
     {
-        Instantiate(
-            bulletPrefab,
-            firePoint.position,
-            Quaternion.identity
-            ); 
+        //弾の数だけループして弾を生成する
+        for (int i = 0; i < bulletCount; i++)
+        {
+            float angle = 15f; //弾と弾の間隔
+
+            float　startAngle = -(bulletCount - 1) * angle / 2f; //弾全体の中心を０度に
+            
+            float currAngle = startAngle + i * angle; //今何発目かの角度決め
+
+            //上方向を基準に発射方向計算
+            Vector3 direction = Quaternion.Euler(0, 0, currAngle) * Vector3.up; 
+
+            //弾を生成する
+            GameObject bullet = Instantiate(
+                bulletPrefab,
+                firePoint.position,
+                Quaternion.Euler(0, 0, currAngle)
+            );
+
+            //弾の威力を設定する
+            BulletController bulletController = 
+                bullet.GetComponent<BulletController>();
+
+            if (bulletController != null)
+            { 
+                bulletController.bulletPower = bulletPower; //弾の威力を設定
+
+                bulletController.SetDirection(direction); //弾の方向を設定
+            }
+        }
     }
 
-    //弾の威力を上げるメソッド
+    //弾の発射間隔を短くするメソッド
     public void UpgradeFireRate()
     {
-        fireInterval -= 0.1f; //弾の発射間隔を短くする
+        GameManager.Instance.UpgradeFireRate();
 
-        if (fireInterval < 0.1f) //最小値を設定
-        {
-            fireInterval = 0.1f;
-        }
+        fireInterval = GameManager.Instance.fireInterval;
     }
 
     //弾の威力を上げるメソッド
     public void UpgradeBulletPower()
     {
-        bulletPower++; 
+       GameManager.Instance.UpgradeBulletPower();
+
+        bulletPower = GameManager.Instance.bulletPower;
     }
 
     //弾の数を増やすメソッド
     public void UpgradeBulletCount()
     {
-        bulletCount++;
+       GameManager.Instance.UpgradeBulletCount();
+
+        bulletCount = GameManager.Instance.bulletCount;
     }
 }
