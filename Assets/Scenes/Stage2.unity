@@ -2549,6 +2549,16 @@ MonoBehaviour:
   enemyGreen: {fileID: 5239996445711805686, guid: dded3f8a1776b06459dc5ea62d768e80, type: 3}
   enemyBlue: {fileID: 5239996445711805686, guid: 627eca565a44535429caa2e2ac1fe87c, type: 3}
   enemyRed: {fileID: 5239996445711805686, guid: 914bdd04fa7ace04583912d722c07d71, type: 3}
+  stageSettings:
+  - green: 1
+    blue: 0
+    red: 0
+  - green: 1
+    blue: 1
+    red: 0
+  - green: 1
+    blue: 1
+    red: 1
 --- !u!4 &1160893658
 Transform:
   m_ObjectHideFlags: 0

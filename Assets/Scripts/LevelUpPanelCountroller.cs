@@ -1,3 +1,5 @@
+//次のステージへ遷移　レベルアップ　
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,17 +18,13 @@ public class LevelUpPanelCountroller : MonoBehaviour
     // 次のステージに遷移するメソッド
     public void NextStage()
     {
+        GameManager.Instance.NextStage(); //次のステージ番号にする
+
         Time.timeScale = 1f; // ゲームを再開
 
-        string currentSceneName = SceneManager.GetActiveScene().name; // 現在のシーン名を取得
-
-        if(currentSceneName == "Stage1")
-        {
-            SceneManager.LoadScene("Stage2"); // ステージ1からステージ2に遷移
-        }
-        else if (currentSceneName == "Stage2")
-        {
-            SceneManager.LoadScene("Stage3"); // ステージ2からステージ3に遷移
-        }   
+        //次のステージを読み込む
+        SceneManager.LoadScene(
+            "Stage" + GameManager.Instance.GetStage()
+         );  
     }
 }
