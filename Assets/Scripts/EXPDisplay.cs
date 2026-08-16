@@ -1,3 +1,5 @@
+//経験値
+
 using UnityEngine;
 using TMPro;
 

@@ -1,3 +1,5 @@
+//ゲーム全体の一括管理　
+
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +10,8 @@ public class GameManager : MonoBehaviour
     public int bulletCount = 1;
     public int bulletPower = 1;
     public float fireInterval = 0.5f;
+    //現在のステージ
+    public int currentStage = 1;
 
     private void Awake()
     {
@@ -44,6 +48,18 @@ public class GameManager : MonoBehaviour
     public void UpgradeBulletCount()
     {
         bulletCount++;
+    }
+
+    //Stageを取得
+    public int GetStage()
+    {
+        return currentStage;
+    }
+
+    //Stageを進める
+    public void NextStage()
+    {
+        currentStage++;
     }
 
     //ゲームをはじめからやり直す
