@@ -6,6 +6,14 @@ public class RedEnemyController : MonoBehaviour
 {
     public float speed = 5f; //敵の移動速度
 
+    public int hp = 3;
+
+    public int score = 300;
+
+    public int expValue = 3;
+
+    public HPbarController hpBar; //HP表示
+
     public GameObject enemyBulletPrefab; //敵の弾のプレハブ
 
     public Transform firePoint; //弾を発射する位置
@@ -24,6 +32,8 @@ public class RedEnemyController : MonoBehaviour
         {
             player = playerObject.transform; //プレイヤーのTransformを取得
         }
+
+        hpBar.SetMaxHP(hp); //最大HP
     }
 
     void Update()
@@ -61,11 +71,18 @@ public class RedEnemyController : MonoBehaviour
         {
             Destroy(other.gameObject); // 弾を削除
 
-            ScoreManager.Instance.AddScore(100); //スコアを加算
+            hp--;
 
-            LevelManager.Instance.AddExp(1); // 経験値を加算
+            hpBar.SetHP(hp); //HP表示を減らす
 
-            Destroy(gameObject); //敵を削除
+            if (hp <= 0)
+            {
+                ScoreManager.Instance.AddScore(score); //スコアを加算
+
+                LevelManager.Instance.AddExp(expValue); // 経験値を加算
+
+                Destroy(gameObject); //敵を削除
+            }
         }
     }
     // 弾を発射する処理
