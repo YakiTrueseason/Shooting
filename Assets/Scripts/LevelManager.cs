@@ -86,7 +86,8 @@ public class LevelManager : MonoBehaviour
 
             level++; // レベルを1上げる
 
-            requiredExp += 5; // 次のレベルアップに必要な経験値を増やす
+            requiredExp += 10
+            ; // 次のレベルアップに必要な経験値を増やす
 
             UpdateUI(); // UIを更新
 

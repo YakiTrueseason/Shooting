@@ -11,6 +11,10 @@ public class GreenEnemyController : MonoBehaviour
 
     public int score = 100; // 敵を倒したときのスコア
 
+    public int expValue = 1; //経験値付与
+
+    public HPbarController hpBar; //HP表示
+
     public GameObject enemyBulletPrefab; // 敵の弾のプレハブ
 
     public Transform firePoint; // 弾を発射する位置
@@ -28,7 +32,10 @@ public class GreenEnemyController : MonoBehaviour
     {
         int level = LevelManager.Instance.GetLevel(); // 現在のレベルを取得
 
-        speed = Mathf.Clamp(1f * (level - 1) * 1f, 3f, 10f); // レベルに応じて速度を調整（最小3、最大10）
+        // レベルに応じて速度を調整（最小3、最大10）
+        speed = Mathf.Clamp(1f * (level - 1) * 1f, 3f, 10f); 
+
+        hpBar.SetMaxHP(hp); //最大HP
     }
     void Update()
     {
@@ -97,6 +104,8 @@ public class GreenEnemyController : MonoBehaviour
 
              hp --;
 
+            hpBar.SetHP(hp); //HP表示を減らす
+
             // 敵の体力が0以下になったらスコアを加算して敵を削除
             if (hp <= 0 && !isDead)
             {
@@ -104,7 +113,7 @@ public class GreenEnemyController : MonoBehaviour
 
                 ScoreManager.Instance.AddScore(score);
 
-                LevelManager.Instance.AddExp(1); // 経験値を加算
+                LevelManager.Instance.AddExp(expValue); // 経験値を加算
 
                 Destroy(gameObject);
             }

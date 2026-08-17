@@ -10,9 +10,13 @@ public class BlueEnemyController : MonoBehaviour
 
     public float movespeed = 2f; //敵の移動速度
 
-    public int hp = 1; //敵の体力
+    public int hp = 2; //敵の体力
 
-    public int score = 100; //敵を倒したときのスコア
+    public int score = 200; //敵を倒したときのスコア
+
+    public int expValue = 2; //経験値付与
+
+    public HPbarController hpBar; //HP表示
 
     public GameObject enemyBulletPrefab; //敵の弾のプレハブ
 
@@ -30,6 +34,8 @@ public class BlueEnemyController : MonoBehaviour
     void Start()
     {
         startPos = transform.position; //敵の初期位置を保存
+
+        hpBar.SetMaxHP(hp); //最大HP
     }
 
     void Update()
@@ -102,12 +108,13 @@ public class BlueEnemyController : MonoBehaviour
         {
             Destroy(other.gameObject); //プレイヤーの弾を破壊する
             hp--;
+            hpBar.SetHP(hp); //HP表示を減らす
         }
         if (hp <= 0)
         {
             ScoreManager.Instance.AddScore(score); //スコアを加算する
 
-            LevelManager.Instance.AddExp(1); //経験値を加算する
+            LevelManager.Instance.AddExp(expValue); //経験値を加算する
 
             Destroy(gameObject); 
         }
