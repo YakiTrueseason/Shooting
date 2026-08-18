@@ -13,6 +13,10 @@ public class LevelManager : MonoBehaviour
 
     public GameObject levelUpPanel; // レベルアップパネル
 
+    public int maxLevel = 3; //最大レベル
+
+    public PowerUpDisplay powerUpDisplay; //強化表示
+
     private int level = 1; // 初期レベル
 
     private int exp = 0; // 経験値（スコア）
@@ -58,6 +62,12 @@ public class LevelManager : MonoBehaviour
     // 経験値を加算するメソッド
     public void AddExp(int amount)
     {
+        //最大レベルなら経験値を増やさない
+        if (level >= maxLevel)
+        {
+            return;
+        }
+
         exp += amount;
 
         Debug.Log("EXP: " + exp + "/" + requiredExp); // デバッグ用に経験値とレベルを表示
@@ -92,6 +102,8 @@ public class LevelManager : MonoBehaviour
             UpdateUI(); // UIを更新
 
             Debug.Log("Level Up! New Level: " + level); // デバッグ用にレベルアップを表示
+
+            powerUpDisplay.ShowPowerUp("LEVEL UP!!"); //強化表示
 
             upgradeManager.ShowUpgradePanel(); // アップグレードパネルを表示
     }
