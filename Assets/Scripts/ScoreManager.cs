@@ -1,26 +1,51 @@
 //スコア
 
 using UnityEngine;
-using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance; 
 
-    public TextMeshProUGUI scoreText;
-
     public int score = 0;
+
+    private int defeatedCount = 0; //突破数
+
     private void Awake()
     {
-        Instance = this;
+        if(Instance == null)
+        {
+            Instance = this;
+
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void AddScore(int points)
     {
-        //Debug.Log("スコア加算: " + points); // デバッグ用に加算するスコアを表示"
-
         score += points; // スコアを加算
 
-        scoreText.text = "Score: " + score; // スコア表示を更新
+        defeatedCount++;
+    }
+
+    //結果
+    public int GetScore() 
+    {
+        return score;
+    }
+
+    public int GetDefeatedCount()
+    {
+        return defeatedCount;
+    }
+
+    public void ResetScore()
+    {
+        score = 0;
+
+        defeatedCount = 0;
     }
 }
