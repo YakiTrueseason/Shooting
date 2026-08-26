@@ -14,13 +14,15 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject restartButton; // リスタートボタンのGameObject
 
+    public ResultUI resultUI; //結果画面
+
     private int life = 5; // 初期ライフ
 
     private void Awake()
     {
         Instance = this; // シングルトンインスタンスを設定
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     private void Start()
     {
         UpdateLifeUI(); // 初期ライフ表示を更新
@@ -36,7 +38,7 @@ public class PlayerManager : MonoBehaviour
 
         if (life <= 0)
         {
-            GameOver(); // ライフが0以下になった場合、ゲームオーバー処理を呼び出す
+            resultUI.ShowResult(); //結果画面表示
         }
     }
     void UpdateLifeUI()
