@@ -107,4 +107,14 @@ public class LevelManager : MonoBehaviour
 
             upgradeManager.ShowUpgradePanel(); // アップグレードパネルを表示
     }
+
+    //リセット
+    public void ResetLevel()
+    {
+        level = 1;
+        exp = 0;
+        requiredExp = 5;
+
+        UpdateUI();
+    }
 }

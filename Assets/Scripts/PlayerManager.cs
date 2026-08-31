@@ -46,6 +46,17 @@ public class PlayerManager : MonoBehaviour
         lifeText.text = "Life: " + life;　// ライフ表示を更新
     }
 
+    //プレイヤーの状態を初期状態に戻す
+    public void ResetPlayer()
+    {
+        life = 5;
+
+        UpdateLifeUI();
+
+        gameOverText.SetActive(false);
+        restartButton.SetActive(false);
+    }
+
     //ゲームオーバー処理
     private void GameOver()
     {
@@ -53,13 +64,20 @@ public class PlayerManager : MonoBehaviour
         restartButton.SetActive(true); // リスタートボタンを有効化
 
         Time.timeScale = 0f; // ゲームを停止
-
-        Debug.Log("Game Over");
     }
+
     //リスタート処理
     public void RestartGame()
     {
         Time.timeScale = 1f; // ゲームを再開
+
+        GameManager.Instance.ResetGame();
+
+        Debug.Log("リスタート");
+        Debug.Log("Stage: " + GameManager.Instance.GetStage());
+        Debug.Log("BulletCount: " + GameManager.Instance.bulletCount);
+        Debug.Log("BulletPower: " + GameManager.Instance.bulletPower);
+        Debug.Log("FireInterval: " + GameManager.Instance.fireInterval);
 
         SceneManager.LoadScene("Stage1"); // ステージ1を再読み込み
     }

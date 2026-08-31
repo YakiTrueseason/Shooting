@@ -1,6 +1,7 @@
 //ゲーム全体の一括管理　
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -57,16 +58,45 @@ public class GameManager : MonoBehaviour
     }
 
     //Stageを進める
-    public void NextStage()
+    public bool NextStage()
     {
+       //Stage3が最終ステージ
+       if(currentStage >= 3)
+        {
+            return false;
+        }
         currentStage++;
+
+        return true;
     }
 
-    //ゲームをはじめからやり直す
+    //ゲームをリセット
     public void ResetGame()
     {
+        //プレイヤー強化、初期状態に戻す
         bulletCount = 1;
         bulletPower = 1;
         fireInterval = 0.5f;
+
+        //ステージリセット
+        currentStage = 1;
+
+        //プレイヤーリセット
+        if (PlayerManager.Instance != null)
+        {
+            PlayerManager.Instance.ResetPlayer();
+        }
+
+        //レベル・EXPリセット
+        if(LevelManager.Instance != null)
+        {
+            LevelManager.Instance.ResetLevel();
+        }
+
+        //スコアリセット
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.ResetScore();
+        }
     }
 }

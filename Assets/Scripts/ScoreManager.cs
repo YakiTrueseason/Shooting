@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instance; 
+    public static ScoreManager Instance;
 
     public int score = 0;
 
@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
 
@@ -32,7 +32,7 @@ public class ScoreManager : MonoBehaviour
     }
 
     //結果
-    public int GetScore() 
+    public int GetScore()
     {
         return score;
     }
@@ -42,6 +42,7 @@ public class ScoreManager : MonoBehaviour
         return defeatedCount;
     }
 
+    //リセット
     public void ResetScore()
     {
         score = 0;
