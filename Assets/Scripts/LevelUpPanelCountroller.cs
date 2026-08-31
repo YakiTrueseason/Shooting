@@ -18,7 +18,14 @@ public class LevelUpPanelCountroller : MonoBehaviour
     // 次のステージに遷移するメソッド
     public void NextStage()
     {
-        GameManager.Instance.NextStage(); //次のステージ番号にする
+        //次のステージ番号にする
+        bool canNextStage = GameManager.Instance.NextStage();
+
+        //Stage最終なら次のステージに進まない
+        if(!canNextStage)
+        {
+            return;
+        }
 
         Time.timeScale = 1f; // ゲームを再開
 
